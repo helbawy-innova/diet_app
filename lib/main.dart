@@ -1,10 +1,16 @@
 import 'package:diet_planner/blocs/cart_bloc.dart';
+import 'package:diet_planner/blocs/recipe_cubit.dart';
+import 'package:diet_planner/models/recipe_model.dart';
 import 'package:diet_planner/screens/cart_screen.dart';
 import 'package:diet_planner/screens/home_screen.dart';
+import 'package:diet_planner/screens/order_confirm_screen.dart';
+import 'package:diet_planner/screens/recipe_details.dart';
+import 'package:diet_planner/screens/recipes_screen.dart';
 import 'package:diet_planner/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'blocs/recipe_details_cubit.dart';
 import 'configuration/app_routes.dart';
 
 void main() {
@@ -18,11 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      routes: {
-        AppRoutes.splash: (context) => const SplashScreen(),
-        AppRoutes.home: (context) => const HomeScreen(),
-        AppRoutes.cart: (context) => BlocProvider(create: (context) => CartBloc(), child: const CartScreen()),
-      },
+      onGenerateRoute: generateRoute,
       initialRoute: AppRoutes.splash,
       theme: ThemeData(
         useMaterial3: false,

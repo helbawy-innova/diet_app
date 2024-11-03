@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // to navigate to the home screen after 10 seconds
     Timer(Duration(seconds: 10), () {
-      Navigator.pushReplacementNamed(context, AppRoutes.cart);
+      Navigator.pushReplacementNamed(context, AppRoutes.recipes);
     });
     // to animate the logo
     timer = Timer.periodic(
